@@ -27,14 +27,15 @@ for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         bot.load_extension(f'cogs.{filename[:-3]}')
 
+with open('settings.json', 'r') as f:
+    settings = json.load(f)
 
-
-
+token = os.environ.get("TOKEN")
 bot.owner_id = os.environ.get("OWNER_ID")
-motor_client = AsyncIOMotorClient(os.environ.get("MONGO_URI"))
+motor_client = AsyncIOMotorClient(settings['mongo_uri'])
 bot.db = motor_client['coa']
-player_cache = Redis.from_url(os.environ.get("REDIS_URL"), db=0)
-max_page_cache = Redis.from_url(os.environ.get("REDIS_URL"), db=1)
+player_cache = Redis.from_url(settings['redis_url'], db=0)
+max_page_cache = Redis.from_url(settings['redis_url'], db=1)
 bot.player_cache = player_cache
 bot.max_page_cache = max_page_cache
-bot.run(os.environ.get("TOKEN"))
+bot.run(token)
