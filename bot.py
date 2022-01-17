@@ -31,9 +31,10 @@ with open('settings.json', 'r') as f:
     settings = json.load(f)
 
 token = os.environ.get("TOKEN")
+mongo_url = os.environ.get("MONGO_URI")
 bot.owner_id = os.environ.get("OWNER_ID")
-motor_client = AsyncIOMotorClient(settings['mongo_uri'])
-bot.db = motor_client['coa']
+motor_client = AsyncIOMotorClient(mongo_url)
+bot.db = motor_client['coadb']
 player_cache = Redis.from_url(settings['redis_url'], db=0)
 max_page_cache = Redis.from_url(settings['redis_url'], db=1)
 bot.player_cache = player_cache
