@@ -1,4 +1,4 @@
 {
     "mongo_uri": "mongodb://mongo:27017",
-    "redis_url": "redis://Coolboy:elas@redis-14962.c9.us-east-1-4.ec2.cloud.redislabs.com:14962"
+    "redis_url": "redis://aea:elas@redis-14962.c9.us-east-1-4.ec2.cloud.redislabs.com:14962"
 }
