@@ -1,4 +1,4 @@
 {
-    "mongo_uri": "mongodb://localhost@49.36.45.6/32:27017",
+    "mongo_uri": "Aryan:v62DVRBsQQthGPgU@49.36.45.6/32:27017",
     "redis_url": "redis://redis-14962.c9.us-east-1-4.ec2.cloud.redislabs.com:14962"
 }
